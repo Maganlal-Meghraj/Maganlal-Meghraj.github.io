@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
-  <link rel="stylesheet" href="style.css?v=14">
+  <link rel="stylesheet" href="style.css?v=21">
   <script>try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}</script>
 </head>
 <body>
@@ -87,33 +87,83 @@ nothing to commit, ready to ship</pre>
         </article>
 
         <article class="commit">
-          <p class="refs"><span class="hash">e4a91c2</span><span class="ref tag">tag: swe-ii</span><span class="ref branch">flexport</span></p>
-          <h3>Software Engineer II <span class="at">@ Flexport</span></h3>
-          <p class="date">Oct 2024 — Nov 2026 · Bengaluru, India</p>
+          <p class="refs"><span class="hash">e4a91c2</span><span class="ref branch">capital</span></p>
+          <h3>Software Engineer II <span class="at">@ Flexport · Capital</span></h3>
+          <p class="date">Jan 2026 — Nov 2026 · Bengaluru, India</p>
+          <p class="note"><a href="https://www.flexport.com/products/capital/">Flexport Capital</a> lends to logistics merchants: 350 active (1,500 in total) and $30–40M originated a month. Loans ran on Canopy, a third-party system that was costly, slow, hard to change and hard to reconcile with Flexport's own data. I led engineering for a 3-person pod that replaced it with KOSH, an in-house platform, from design through launch and on-call.</p>
           <ul>
-            <li><strong>Lending platform:</strong> Led engineering for a 3-person pod replacing Canopy, a third-party loan system, with KOSH, an in-house platform for <a href="https://www.flexport.com/products/capital/">Flexport Capital</a>. Launched two weeks early, with a projected $800K in net savings through 2029.</li>
-            <li><strong>Two-way data sync:</strong> Designed the KOSH–Canopy sync (transactional outbox over Kafka, Debezium CDC into Snowflake for drift checks), keeping 1M+ financial records consistent through a phased migration with zero data-integrity incidents.</li>
-            <li><strong>AI-native engineering:</strong> Wired AI agents (Claude Code, Codex, Cursor) via MCP into Loki, Datadog, Sentry, Buildkite, Jira and read-only prod data, and used them daily to root-cause incidents, migration drift and CI failures.</li>
-            <li><strong>Auth &amp; security:</strong> Wrote an authorization standard and shared auth library adopted by ~10 services, designed a Cognito token-exchange service, and built a logging library that scrubs sensitive fields for SOC 1 while cutting log volume 85%.</li>
-            <li class="extra"><strong>Loan lifecycle:</strong> Built origination, repayment schedules and interest on Kotlin/Ktor, GraphQL and PostgreSQL, with Temporal workflows for payments and cutover. Fixed a systemic interest/fee mapping error inherited from Canopy and backfilled history.</li>
+            <li><strong>Lending platform:</strong> Launched KOSH two weeks ahead of commitment. All merchants now run on it, with a projected $800K in net savings through 2029.</li>
+            <li><strong>Two-way data sync:</strong> Before cutover, cron jobs pulled Canopy data into KOSH from Snowflake and the Canopy API. After it, a transactional outbox, CDC and Kafka pushed every KOSH write back to Canopy asynchronously. 1M+ financial records moved client by client with zero data-integrity incidents.</li>
+            <li><strong>Loan lifecycle:</strong> Built origination, repayment schedules and interest on Kotlin/Ktor, GraphQL and PostgreSQL, with Temporal workflows for payments, Canopy sync, cutover and SOFR re-pricing.</li>
+            <li><strong>AI-native engineering:</strong> Wired AI agents (Claude Code, Codex, Cursor) via MCP into Loki, Datadog, Sentry, Buildkite, Jira, Slack and read-only prod PostgreSQL and Snowflake, and used them daily to root-cause incidents, migration drift and CI failures.</li>
             <li class="extra"><strong>Custom agent skills:</strong> Built 10+ agent skills, including end-to-end triage of payment-failure, authorization and PagerDuty alerts. Set up multi-agent code review ahead of human review and wrote the repo's agent-context docs (CLAUDE.md).</li>
             <li class="extra"><strong>AI-run production ops:</strong> Ran payment backfills and monthly SOFR loan re-pricing through agents, with pre-flight checks against prod data and human sign-off before writes.</li>
-            <li class="extra"><strong>Billing:</strong> Shipped lazy ChargeBee account creation for BillSafe mode, which recovered ~$175K of at-risk revenue in 6 months.</li>
-            <li class="extra"><strong>Leadership:</strong> Promoted to SWE II in 10 months. Mentored 2 engineers, including an intern, and interviewed 30+ candidates.</li>
+            <li class="extra"><strong>Leading the pod:</strong> Planned sprints 3–4 weeks ahead, wrote design docs and Ops rollout handbooks, and ran design reviews. Mentored a pod engineer and an intern, who shipped the Fees flow end to end and ranked top 3 for full-time conversion.</li>
           </ul>
-          <button class="more-toggle" type="button" aria-expanded="false" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg><span class="closed"><span class="count">+5</span> more changes</span><span class="opened">Show less</span></button>
+          <button class="more-toggle" type="button" aria-expanded="false" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg><span class="closed"><span class="count">+3</span> more changes</span><span class="opened">Show less</span></button>
         </article>
 
         <article class="commit">
-          <p class="refs"><span class="hash">9b7d3f0</span><span class="ref tag">tag: swe</span><span class="ref branch">flexport</span></p>
-          <h3>Software Engineer <span class="at">@ Flexport</span></h3>
-          <p class="date">Dec 2023 — Oct 2024 · Bengaluru, India</p>
+          <p class="refs"><span class="hash">7c3e5a1</span><span class="ref branch">platform</span></p>
+          <h3>Software Engineer II <span class="at">@ Flexport · Platform</span></h3>
+          <p class="date">Jul 2025 — Dec 2025 · Bengaluru, India</p>
+          <p class="note">The platform team owns what every product team builds on: authentication and authorization, logging, account security and readiness for the holiday shipping peak. AI agents, which I'd started using in Billing, were part of how I investigated and shipped here.</p>
           <ul>
-            <li><strong>FBA orchestration:</strong> Cut Amazon FBA orchestration incidents from ~25/week to 1–2/month under 4x API volume by re-architecting the engine onto FIFO SQS (ordered, deduplicated processing).</li>
-            <li><strong>Replenishment:</strong> Designed a Snowflake-to-WMS sync for <a href="https://www.flexport.com/solutions/seller-portal/">Seller Portal</a> handling 1M+ items/hour, and sped up the legacy recommender's slow query path (Flexport network, Walmart, Amazon) from 10s to 500ms.</li>
-            <li><strong>Noncompliance system:</strong> Built a real-time view merging merchant feedback and Ops data, cutting Ops resolution time by 65%.</li>
+            <li><strong>Peak readiness:</strong> Load-tested critical services at expected peak volume, tuned autoscaling, connection pools, queues and rate limits, fixed the bottlenecks the tests exposed, and wrote runbooks and the on-call plan. The services came through peak with no capacity incidents.</li>
+            <li><strong>Authorization standard:</strong> Turned the group-based checks from the Billing claims fix into a written cross-team standard on the central auth library, adopted by ~10 services across Billing and Inventory.</li>
+            <li><strong>Token exchange for Sierra:</strong> Sierra, a third-party AI support agent, had to call Flexport services on behalf of the customer it was helping. Cognito has no on-behalf-of token exchange, so I built a service that issues customer-scoped tokens (and M2M tokens), so Sierra's calls carry the customer's context and pass the normal permission checks.</li>
+            <li><strong>Logging library:</strong> Built a logging library that scrubs sensitive fields for SOC 1, samples noisy logs and takes per-domain remote config, cutting log volume 85%.</li>
+            <li class="extra"><strong>Account security:</strong> Built the yearly password reset for the rotation mandate (a cron with batching and checkpointing), and added email verification at signup, which didn't exist before.</li>
+            <li class="extra"><strong>Vulnerability fixes:</strong> As platform-team owner, drove security-flagged vulnerabilities to closure across service owners.</li>
+          </ul>
+          <button class="more-toggle" type="button" aria-expanded="false" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg><span class="closed"><span class="count">+2</span> more changes</span><span class="opened">Show less</span></button>
+        </article>
+
+        <div class="side-branch">
+          <article class="commit">
+            <p class="refs"><span class="hash">b81d0f4</span><span class="ref branch">inventory</span></p>
+            <h3>Software Engineer II <span class="at">@ Flexport · Inventory</span></h3>
+            <p class="date">mid 2025 · on loan, alongside on-call and tickets in my own team</p>
+            <details class="more">
+              <summary><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg><span class="count">Show details</span></summary>
+              <p class="note">The Inventory team was short-staffed and at risk of missing a commitment on its decant / non-decant flow for D2C. Bin space is expensive, so stock stays boxed in bulk storage until a bin needs it. I joined to build the replenishment side.</p>
+              <ul>
+                <li><strong>Replenishment sync:</strong> A cron job that pulls Data Science's restocking recommendations from Snowflake and pushes them through Flexport's services into Logiwa, the warehouse management system, at 1M+ items/hour. Logiwa then raises a decant task whenever a bin drops below its threshold.</li>
+              </ul>
+            </details>
+          </article>
+        </div>
+
+        <article class="commit">
+          <p class="refs"><span class="hash">3a6f9d2</span><span class="ref branch">billing</span></p>
+          <h3>Software Engineer II <span class="at">@ Flexport · Billing</span></h3>
+          <p class="date">Jan 2025 — Jun 2025 · Bengaluru, India</p>
+          <p class="note">The billing team turns shipments and services into invoices through ChargeBee, along with discounts and claims. This is where I started using AI agents in daily engineering.</p>
+          <ul>
+            <li><strong>Revenue leakage:</strong> Clients who onboarded without payment details never got a ChargeBee account, so billing skipped them and no invoices were created, and large B2B clients couldn't simply be blocked. I made BillSafe create the account on the first charge instead, so invoicing ran as normal and unpaid invoices were flagged for Ops to collect. Recovered ~$175K in 6 months.</li>
+            <li><strong>Discounting:</strong> Refactored the discount logic so a new discount type ships in 1–2 days, testing included, instead of 1–1.5 weeks. Built tiered, count-based discounts from scratch (one rate for the first 3 units, another for the next 5).</li>
+            <li><strong>Claims incident:</strong> Customers could approve their own claims. Stopped it, audited the damage with Ops and recovered $53K of ~$60K, then fixed the whole class of bug with group-based authorization.</li>
           </ul>
         </article>
+
+        <article class="commit mini">
+          <p class="refs"><span class="hash">c5e2817</span><span class="ref tag">tag: swe-ii</span></p>
+          <p class="date">Oct 2024 · promoted to Software Engineer II in 10 months</p>
+        </article>
+
+        <article class="commit">
+          <p class="refs"><span class="hash">9b7d3f0</span><span class="ref branch">b2b</span></p>
+          <h3>Software Engineer → Software Engineer II <span class="at">@ Flexport · B2B</span></h3>
+          <p class="date">Dec 2023 — Dec 2024 · Bengaluru, India</p>
+          <p class="note"><a href="https://www.flexport.com/solutions/seller-portal/">Seller Portal</a>'s B2B team ships merchants' inventory in bulk into Amazon FBA and Walmart warehouses, and delivers to end customers for some products. My first team at Flexport; I also interviewed 30+ candidates during my time there.</p>
+          <ul>
+            <li><strong>FBA orchestration:</strong> Owned the investigation and design that moved Amazon FBA orchestration onto FIFO SQS, and built much of the backend flows. Incidents fell from ~25 a week to 1–2 a month while API volume grew 4x.</li>
+            <li><strong>Recommendation query:</strong> My first task: a MySQL query behind restock recommendations took 10s. Purged recommendations older than 90 days, replaced a <code>MAX(created_at)</code> lookup with a rank-based query and indexed <code>created_at</code>, bringing it to 500ms.</li>
+            <li><strong>Seller-config migration:</strong> Moved the recommendation engine's seller config to a new system with zero downtime: backfill, dual writes, then a feature-flagged switch of reads.</li>
+            <li><strong>Noncompliance flow:</strong> When a B2B order is missing information, such as a bad address or a missing label, Ops opens a case, the merchant fixes it in Seller Portal, and Ops verifies. It replaced email and phone calls and cut resolution time by 65%.</li>
+          </ul>
+        </article>
+
 
         <article class="commit">
           <p class="refs"><span class="hash">51c08ae</span><span class="ref branch">tcs</span></p>
@@ -158,6 +208,17 @@ nothing to commit, ready to ship</pre>
             <dt>Approach</dt><dd>In-house platform on Kotlin/Ktor, GraphQL, PostgreSQL and Temporal; phased migration over a Kafka outbox and Debezium CDC sync.</dd>
             <dt>Result</dt><dd class="result">Two weeks early, 1M+ records, zero integrity incidents, $800K projected savings.</dd>
           </dl>
+          <details class="story">
+            <summary><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg><span class="count">Read the story</span> · moving live loans off Canopy</summary>
+            <dl>
+              <dt>Problem</dt><dd>Move 1M+ financial records and every merchant off Canopy while loans kept accruing interest and taking payments. There was no window to pause.</dd>
+              <dt>Approach</dt><dd>Two phases. Before cutover, cron jobs pulled Canopy data into KOSH. Once a client's writes moved to KOSH, each write also landed in an outbox table in the same transaction; CDC carried it to Kafka, and a consumer replayed it into Canopy. A second CDC stream fed KOSH into Snowflake for drift checks.</dd>
+              <dt>Why</dt><dd>Canopy stayed a complete, current copy, so any client could roll back, downstream tools still reading Canopy kept working, and the two systems could run side by side for comparison.</dd>
+              <dt>Rejected</dt><dd>Writing through to Canopy synchronously. Canopy's latency was one of the reasons for leaving it, and it would have sat in every KOSH request.</dd>
+              <dt>Surprises</dt><dd>Drift checks surfaced a systemic interest/fee mapping error inherited from Canopy across loans, schedules and payments. I fixed it at the data layer and backfilled history once billing risk was ruled out. Canopy's data model also didn't map cleanly onto KOSH's, so the sync needed translation rules.</dd>
+              <dt>Result</dt><dd class="result">Clients moved one by one with zero data-integrity incidents, and KOSH launched two weeks early.</dd>
+            </dl>
+          </details>
           <p class="meta">kotlin · ktor · graphql · postgres · temporal · kafka</p>
         </article>
         <article class="card">
@@ -167,15 +228,37 @@ nothing to commit, ready to ship</pre>
             <dt>Approach</dt><dd>Re-architected onto FIFO SQS for ordered, deduplicated processing.</dd>
             <dt>Result</dt><dd class="result">1–2 incidents a month, while API volume grew 4x.</dd>
           </dl>
+          <details class="story">
+            <summary><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg><span class="count">Read the story</span> · taming Amazon FBA orchestration</summary>
+            <dl>
+              <dt>Problem</dt><dd>Sending inventory to Amazon FBA meant a chain of SP-API calls that had grown from 6 to 24. Bursts hit Amazon's rate limits, and a failure partway left shipments stuck: ~25 incidents a week.</dd>
+              <dt>Constraint</dt><dd>B2B ran on Lambda with a 30-second limit, so retrying inside the synchronous chain could never fit.</dd>
+              <dt>Approach</dt><dd>Each step became a message on a FIFO SQS queue, consumed with long polling at a controlled rate and retried from the step that failed.</dd>
+              <dt>Rejected</dt><dd>Step Functions: no global control over the SP-API call rate, a per-transition cost that added up at this volume, and no built-in per-shipment ordering and deduplication like FIFO message groups.</dd>
+              <dt>My part</dt><dd>Owned the investigation and the architecture design, then was a major contributor to the backend flows during the build.</dd>
+              <dt>Result</dt><dd class="result">1–2 incidents a month, while API volume grew 4x.</dd>
+            </dl>
+          </details>
           <p class="meta">aws sqs · amazon sp-api</p>
         </article>
         <article class="card">
           <div class="card-head"><h3>Authorization standard</h3><span>Platform</span></div>
           <dl>
-            <dt>Context</dt><dd>Each service did its own ad-hoc access checks.</dd>
-            <dt>Approach</dt><dd>A written standard, a shared auth library and a Cognito token-exchange design.</dd>
+            <dt>Context</dt><dd>Customers could approve their own claims: the UI was the only gate.</dd>
+            <dt>Approach</dt><dd>Backend role checks, then Cognito user groups and group-based decorators in the central auth library, written up as a standard.</dd>
             <dt>Result</dt><dd class="result">Adopted by ~10 services across Billing and Inventory.</dd>
           </dl>
+          <details class="story">
+            <summary><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg><span class="count">Read the story</span> · from self-approved claims to an auth standard</summary>
+            <dl>
+              <dt>Problem</dt><dd>There was no separate back-office app, so customers and Ops used the same UI. A UI change showed customers the approve button, and the backend APIs didn't check roles, so customers approved their own claims. It was costing money.</dd>
+              <dt>Fix first</dt><dd>Reverted the UI change, then added an explicit role check in the backend and marked the incident stable.</dd>
+              <dt>Audit</dt><dd>Worked with Ops to find every self-approved claim: ~$60K in total, of which $53K was recovered.</dd>
+              <dt>Fix the class</dt><dd>Created a Cognito user group for the people allowed to approve claims, and added decorators to the central auth library that take the groups allowed to call an API and check the caller's membership. Written to work for any group, not just Billing's.</dd>
+              <dt>Trade-off</dt><dd>Service-to-service calls stayed allowed by default, which kept internal callers working during the rollout.</dd>
+              <dt>Result</dt><dd class="result">On Platform it became a written cross-team standard, adopted by ~10 services across Billing and Inventory.</dd>
+            </dl>
+          </details>
           <p class="meta">aws cognito · oauth2/jwt</p>
         </article>
         <article class="card">

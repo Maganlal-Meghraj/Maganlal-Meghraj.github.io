@@ -159,7 +159,7 @@ h3 { margin: 0; font-size: 20px; line-height: 1.35; font-weight: 600; }
 .commit li strong { color: var(--fg); font-weight: 600; }
 /* Extra bullets stay in the same list; JS collapses them and reveals the toggle below. */
 .commit ul.collapsed .extra { display: none; }
-.more-toggle {
+.more-toggle, .more summary {
   display: inline-flex; align-items: center; gap: 8px; margin: 16px 0 0 24px; padding: 6px 14px 6px 10px;
   background: transparent; cursor: pointer;
   border: 1px solid var(--line); border-radius: 999px;
@@ -167,16 +167,48 @@ h3 { margin: 0; font-size: 20px; line-height: 1.35; font-weight: 600; }
   transition: color .15s, border-color .15s;
 }
 .more-toggle[hidden] { display: none; }
-.more-toggle:hover { color: var(--fg); border-color: var(--fg); }
-.more-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.more-toggle svg { width: 14px; height: 14px; transition: transform .2s; }
-.more-toggle .count { color: var(--green); }
+.more-toggle:hover, .more summary:hover { color: var(--fg); border-color: var(--fg); }
+.more-toggle:focus-visible, .more summary:focus-visible, .story summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.more-toggle svg, .more summary svg, .story summary svg { width: 14px; height: 14px; transition: transform .2s; }
+.more-toggle .count, .more summary .count { color: var(--green); }
 .more-toggle .opened, .more-toggle[aria-expanded="true"] .closed { display: none; }
 .more-toggle[aria-expanded="true"] .opened { display: inline; }
 .more-toggle[aria-expanded="true"] svg { transform: rotate(-90deg); }
 .diffstat { margin: 12px 0 0; font-family: var(--mono); font-size: 13px; color: var(--muted); }
 .diffstat .ins { color: var(--green); }
 .diffstat .del { color: var(--accent); }
+.commit code { font-family: var(--mono); font-size: .9em; color: var(--fg); }
+
+/* Promotion: a tag-only commit with a small dot on the rail. */
+.commit.mini::before { left: calc(-1 * var(--rail-pad) - 7px); top: 4px; width: 12px; height: 12px; border-color: var(--yellow); }
+.commit.mini .refs { margin: 0; }
+
+/* Side branch: its own rail, forking off the main rail below and merging back above.
+   Connectors span from the main rail (x = 0) to the branch rail (x = rail-pad + 2px). */
+.side-branch { --branch: var(--green); position: relative; margin-bottom: 72px; padding-left: var(--rail-pad); border-left: 2px solid var(--branch); }
+.side-branch::before, .side-branch::after {
+  content: ""; position: absolute; box-sizing: border-box; left: calc(-1 * var(--rail-pad) - 4px); width: calc(var(--rail-pad) + 4px); height: 32px;
+  border-right: 2px solid var(--branch);
+}
+.side-branch::before { bottom: 100%; border-top: 2px solid var(--branch); border-top-right-radius: 16px; }
+.side-branch::after { top: 100%; border-bottom: 2px solid var(--branch); border-bottom-right-radius: 16px; }
+.side-branch .commit::before { border-color: var(--branch); }
+.side-branch .more { margin: 16px 0 0; }
+.side-branch .more summary { margin: 0; }
+
+/* Story: an expandable write-up inside a Selected work card. */
+.more summary, .story summary { list-style: none; }
+.more summary::-webkit-details-marker, .story summary::-webkit-details-marker { display: none; }
+.more[open] summary svg, .story[open] summary svg { transform: rotate(90deg); }
+/* Story toggle: a plain row in the card's label style, set off by a dashed rule. */
+.story { padding-top: 14px; border-top: 1px dashed var(--line); }
+.story summary {
+  display: flex; align-items: center; gap: 8px; cursor: pointer;
+  font-family: var(--mono); font-size: 12px; color: var(--faint); transition: color .15s;
+}
+.story summary:hover { color: var(--fg); }
+.story summary .count { text-transform: uppercase; color: var(--green); }
+.card .story dl { margin-top: 16px; }
 
 /* Selected work */
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap: 20px; }
@@ -189,10 +221,10 @@ h3 { margin: 0; font-size: 20px; line-height: 1.35; font-weight: 600; }
 .card-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 12px; }
 .card-head h3 { font-size: 22px; letter-spacing: -0.02em; }
 .card-head span { font-family: var(--mono); font-size: 12px; color: var(--faint); }
-.card dl { margin: 0; display: grid; grid-template-columns: 84px 1fr; gap: 10px 16px; font-size: 15px; }
-.card dt { font-family: var(--mono); font-size: 12px; text-transform: uppercase; color: var(--faint); padding-top: 3px; }
-.card dd { margin: 0; color: var(--muted); }
-.card dd.result { color: var(--fg); font-weight: 500; }
+.card dl, .story dl { margin: 0; display: grid; grid-template-columns: 84px 1fr; gap: 10px 16px; font-size: 15px; }
+.card dt, .story dt { font-family: var(--mono); font-size: 12px; text-transform: uppercase; color: var(--faint); padding-top: 3px; }
+.card dd, .story dd { margin: 0; color: var(--muted); }
+.card dd.result, .story dd.result { color: var(--fg); font-weight: 500; }
 .card .meta { margin: auto 0 0; font-family: var(--mono); font-size: 12px; color: var(--faint); }
 
 /* Skills */
@@ -240,8 +272,8 @@ footer .wrap {
   .gitlog { --rail-pad: 28px; margin-left: 6px; }
   .grid, .skills { grid-template-columns: 1fr; }
   .card { padding: 22px; }
-  .card dl { grid-template-columns: 1fr; gap: 2px; }
-  .card dd { margin-bottom: 8px; }
+  .card dl, .story dl { grid-template-columns: 1fr; gap: 2px; }
+  .card dd, .story dd { margin-bottom: 8px; }
   .contact { padding: 28px 22px; }
   .contact h2 { font-size: 30px; }
 }
