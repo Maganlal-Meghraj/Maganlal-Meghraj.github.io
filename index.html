@@ -339,6 +339,13 @@ nothing to commit, ready to ship</pre>
       });
     });
 
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => entries.forEach((e) => {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      }), { threshold: 0.15 });
+      document.querySelectorAll('.commit').forEach((c) => { c.classList.add('slide'); io.observe(c); });
+    }
+
     toggle.addEventListener('click', () => {
       const next = current() === 'dark' ? 'light' : 'dark';
       root.dataset.theme = next;

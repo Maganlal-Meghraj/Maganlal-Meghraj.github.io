@@ -179,6 +179,14 @@ h3 { margin: 0; font-size: 20px; line-height: 1.35; font-weight: 600; }
 .diffstat .del { color: var(--accent); }
 .commit code { font-family: var(--mono); font-size: .9em; color: var(--fg); }
 
+/* Slide-in: JS adds .slide (hidden state) then .in when the commit scrolls into view. */
+@media (prefers-reduced-motion: no-preference) {
+  .commit.slide { opacity: 0; transform: translateX(-72px); transition: opacity 1.5s cubic-bezier(.2,.8,.2,1), transform 1.5s cubic-bezier(.2,.8,.2,1); }
+  .commit.slide::before { transform: scale(0); transition: transform .8s cubic-bezier(.34,1.56,.64,1) .55s; }
+  .commit.slide.in::before { transform: none; }
+  .commit.slide.in { opacity: 1; transform: none; }
+}
+
 /* Promotion: a tag-only commit with a small dot on the rail. */
 .commit.mini::before { left: calc(-1 * var(--rail-pad) - 7px); top: 4px; width: 12px; height: 12px; border-color: var(--yellow); }
 .commit.mini .refs { margin: 0; }
