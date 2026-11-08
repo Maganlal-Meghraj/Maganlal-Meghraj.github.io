@@ -244,3 +244,9 @@ footer .wrap {
   .contact { padding: 28px 22px; }
   .contact h2 { font-size: 30px; }
 }
+
+/* 404 */
+.notfound { padding-top: 140px; padding-bottom: 160px; }
+.notfound .cmd { margin-bottom: 6px; }
+.notfound .cmd .path { color: var(--fg); margin: 0; }
+.notfound .cmd.err { margin-bottom: 32px; color: var(--accent); }

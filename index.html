@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
-  <link rel="stylesheet" href="style.css?v=12">
+  <link rel="stylesheet" href="style.css?v=13">
   <script>try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}</script>
 </head>
 <body>
@@ -225,6 +225,10 @@ nothing to commit, ready to ship</pre>
   </footer>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // For whoever opens DevTools: a quiet nod to Feluda's "Magajastra", the brain as weapon.
+    console.log('%cP.', 'font: 700 32px Geist, system-ui, sans-serif; color: #ef5a4b');
+    console.log('Reading the source? Observation first, then deduction. Magajastra approves.\nSay hello: pushkalgc007@gmail.com');
 
     const root = document.documentElement;
     const toggle = document.getElementById('theme-toggle');
