@@ -110,6 +110,7 @@ h1 { margin: 0 0 20px; font-size: clamp(44px, 7vw, 72px); line-height: 1; letter
 .term pre { margin: 0; padding: 18px 20px 22px; font: 13.5px/1.8 var(--mono); white-space: pre-wrap; }
 .term .p { color: var(--term-prompt); }
 .term .ok { color: var(--term-ok); }
+.term .nw { white-space: nowrap; }
 
 /* Stats */
 .stats {
