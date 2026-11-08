@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
-  <link rel="stylesheet" href="style.css?v=11">
+  <link rel="stylesheet" href="style.css?v=12">
   <script>try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}</script>
 </head>
 <body>
@@ -236,6 +236,7 @@ nothing to commit, ready to ship</pre>
     document.querySelectorAll('.more-toggle').forEach((btn) => {
       const list = btn.previousElementSibling;
       list.classList.add('collapsed');
+      btn.querySelector('.count').textContent = '+' + list.querySelectorAll('.extra').length;
       btn.hidden = false;
       btn.addEventListener('click', () => {
         const open = list.classList.toggle('collapsed') === false;

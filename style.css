@@ -17,6 +17,9 @@
   --badge-border: light-dark(#cfe3d4, #234a30);
   --badge-fg: light-dark(#24633a, #7fd497);
   --term-bg: light-dark(#16140f, #181714);
+  --term-fg: #e9e5dc;      /* the terminal card and contact panel stay dark in both themes */
+  --term-prompt: #ef7a6e;
+  --term-ok: #6fcf87;
   --panel: light-dark(#16140f, #1b1916);
   --panel-fg: light-dark(#f7f5f0, #ece8e1);
   --panel-muted: light-dark(#c9c3b8, #b3ada3);
@@ -96,7 +99,7 @@ h1 { margin: 0 0 20px; font-size: clamp(44px, 7vw, 72px); line-height: 1; letter
 /* Terminal card */
 .term {
   flex: 1 1 340px; min-width: 0; max-width: 420px;
-  background: var(--term-bg); color: #e9e5dc;
+  background: var(--term-bg); color: var(--term-fg);
   border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
   box-shadow: 0 24px 48px -24px rgba(0, 0, 0, .35);
 }
@@ -105,8 +108,8 @@ h1 { margin: 0 0 20px; font-size: clamp(44px, 7vw, 72px); line-height: 1; letter
 .term-bar i:first-child { background: var(--accent); }
 .term-bar span { margin-left: 8px; font-family: var(--mono); font-size: 12px; color: rgba(255, 255, 255, .5); }
 .term pre { margin: 0; padding: 18px 20px 22px; font: 13.5px/1.8 var(--mono); white-space: pre-wrap; }
-.term .p { color: #ef7a6e; }
-.term .ok { color: #6fcf87; }
+.term .p { color: var(--term-prompt); }
+.term .ok { color: var(--term-ok); }
 
 /* Stats */
 .stats {
@@ -127,11 +130,12 @@ h3 { margin: 0; font-size: 20px; line-height: 1.35; font-weight: 600; }
 .cmd span { color: var(--accent); margin-right: 6px; }
 
 /* Career git log */
-.gitlog { margin-left: 8px; padding-left: 36px; border-left: 2px solid var(--border); }
+/* Dots sit centred on the 2px rail: left = -(rail padding + 1px half-rail + 9px half-dot). */
+.gitlog { --rail-pad: 36px; margin-left: 8px; padding-left: var(--rail-pad); border-left: 2px solid var(--border); }
 .commit { position: relative; padding-bottom: 48px; }
 .commit:last-child { padding-bottom: 0; }
 .commit::before {
-  content: ""; position: absolute; left: -46px; top: 2px;
+  content: ""; position: absolute; left: calc(-1 * var(--rail-pad) - 10px); top: 2px;
   width: 18px; height: 18px; border-radius: 50%;
   background: var(--bg); border: 2px solid var(--accent);
   box-shadow: 0 0 0 5px var(--bg);
@@ -205,7 +209,7 @@ h3 { margin: 0; font-size: 20px; line-height: 1.35; font-weight: 600; }
 }
 .contact-text { flex: 999 1 420px; min-width: 0; }
 .contact .cmd { margin-bottom: 12px; color: var(--panel-muted); }
-.contact .cmd span { color: #ef7a6e; }
+.contact .cmd span { color: var(--term-prompt); }
 .contact h2 { margin: 0 0 12px; font-size: 40px; line-height: 1.1; }
 .contact-text > p:last-child { margin: 0; color: var(--panel-muted); max-width: 52ch; }
 .contact-links { flex: 1 1 340px; display: flex; flex-direction: column; gap: 12px; }
@@ -232,8 +236,7 @@ footer .wrap {
   .stat b { font-size: 32px; }
   section[id] { padding-top: 80px; }
   h2 { font-size: 28px; }
-  .gitlog { padding-left: 28px; margin-left: 6px; }
-  .commit::before { left: -38px; }
+  .gitlog { --rail-pad: 28px; margin-left: 6px; }
   .grid, .skills { grid-template-columns: 1fr; }
   .card { padding: 22px; }
   .card dl { grid-template-columns: 1fr; gap: 2px; }
