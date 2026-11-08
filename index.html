@@ -249,7 +249,7 @@ nothing to commit, ready to ship</pre>
             <dt>Result</dt><dd class="result">Adopted by ~10 services across Billing and Inventory.</dd>
           </dl>
           <details class="story">
-            <summary><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg><span class="count">Read the story</span> · from self-approved claims to an auth standard</summary>
+            <summary><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg><span class="count">Read the story</span> · self-approved claims to auth standard</summary>
             <dl>
               <dt>Problem</dt><dd>There was no separate back-office app, so customers and Ops used the same UI. A UI change showed customers the approve button, and the backend APIs didn't check roles, so customers approved their own claims. It was costing money.</dd>
               <dt>Fix first</dt><dd>Reverted the UI change, then added an explicit role check in the backend and marked the incident stable.</dd>
