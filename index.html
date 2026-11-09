@@ -341,7 +341,7 @@ nothing to commit, ready to ship</pre>
 
     if ('IntersectionObserver' in window) {
       const io = new IntersectionObserver((entries) => entries.forEach((e) => {
-        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        e.target.classList.toggle('in', e.isIntersecting);
       }), { threshold: 0.15 });
       document.querySelectorAll('.commit').forEach((c) => { c.classList.add('slide'); io.observe(c); });
     }
